@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ErrorHandler {
     @ExceptionHandler
-    @ResponseStatus(HttpStatus.NOT_FOUND) // 404
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse handleNotFound(final NotFoundException ex) {
         return new ErrorResponse(ex.getMessage());
     }
 
     @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST) // 400
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleValidate(final ValidationException ex) {
         return new ErrorResponse(ex.getMessage());
     }

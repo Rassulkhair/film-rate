@@ -42,8 +42,13 @@ public class FilmController {
         filmService.removeLike(filmId, userId);
     }
 
-    @GetMapping("/popular")           // значение по умолчанию, чтобы параметр был необязательным
+    @GetMapping("/popular")
     public List<Film> findAllPopular(@RequestParam(defaultValue = "10") long count) {
         return filmService.findAllPopular(count);
+    }
+
+    @GetMapping("/{filmId}")
+    public Film findById(@PathVariable long filmId) {
+        return filmService.findById(filmId);
     }
 }
